@@ -1,0 +1,35 @@
+class Solution {
+    private:
+    bool isIncreasing(vector<int> nums)
+    {
+        int n = nums.size();
+        for(int i = 0;i<n-1;i++)
+        {
+            if(nums[i]>=nums[i+1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+public:
+    bool canBeIncreasing(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> arr = nums;
+        for(int i=0; i<n; i++)
+        {
+            arr.erase(arr.begin()+i);
+            bool ans = isIncreasing(arr);
+            if(ans)
+            {
+                return true;
+            }
+            else 
+            {
+                arr.insert(arr.begin()+i,nums[i]);
+                
+            }
+        }
+        return false;
+    }
+};
