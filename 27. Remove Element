@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        sort(nums.begin(),nums.end());
+        int k = 0;
+        
+        vector<int> arr;
+        int n = nums.size();
+        for(int i = 0;i<n;i++)
+        {
+            if(nums[i] != val)
+            {
+                arr.push_back(nums[i]);
+            }
+        }
+        nums.clear();
+         for (int i=0; i<arr.size(); i++) 
+         {
+        nums.push_back(arr[i]); 
+             k++;
+         }
+        return k;
+    }
+};
